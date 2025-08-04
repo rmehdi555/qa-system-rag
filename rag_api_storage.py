@@ -121,7 +121,7 @@ class Question(BaseModel):
     recentQuestions: List[str] = []
 
 
-@app.post("/api/v1/ask/")
+@app.post("/api/v1/ask")
 async def ask_question(q: Question):
     # if not vector_store:
     #     return JSONResponse(content={"status": "error", "message": "هیچ سندی وجود ندارد."}, status_code=503)
