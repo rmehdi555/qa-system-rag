@@ -273,3 +273,7 @@ async def update_pdf(filename: str, file: UploadFile = File(...)):
             content={"status": "error", "message": "خطا در به‌روزرسانی فایل", "detail": str(e)},
             status_code=500
         )
+
+@app.get("/test")
+async def test():
+    return "hi"
