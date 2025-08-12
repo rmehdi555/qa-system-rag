@@ -127,13 +127,12 @@ async def ask_question(q: Question):
     #     return JSONResponse(content={"status": "error", "message": "هیچ سندی وجود ندارد."}, status_code=503)
 
     try:
-        # فیلتر سؤالات عمومی
-        عمومی = [
+        public_question = [
             "لاراول چیست", "ماشین چیست", "انسان چیست", "هوا چیست", "آب چیست",
             "برنامه نویسی چیست", "کامپیوتر چیست"
         ]
         lowered_q = q.question.strip().lower()
-        if any(term in lowered_q for term in عمومی):
+        if any(term in lowered_q for term in public_question):
             return JSONResponse(
                 content={"status": "out_of_scope",
                          "message": "این سوال در حوزه تخصصی ما نیست. لطفاً سؤال مرتبط با حوزه مالیاتی بپرسید."},
